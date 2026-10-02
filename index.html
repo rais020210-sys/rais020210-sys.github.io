@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone 17 Pro Max — Deep Titanium Blue</title>
+  <style>
+    /* RESET & CORE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #0B192C 0%, #030712 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #F3F4F6;
+    }
+
+    /* IPHONE HARDWARE FRAME */
+    .phone-container {
+      position: relative;
+      width: 380px;
+      height: 780px;
+      background: #0D233A; /* Deep Titanium Blue Frame */
+      border-radius: 54px;
+      box-shadow: 
+        0 0 0 3px #1E3A8A,
+        0 0 0 6px #0F172A,
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(14, 165, 233, 0.2);
+      padding: 12px;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .phone-container:hover {
+      transform: scale(1.02) rotateX(2deg) rotateY(-2deg);
+    }
+
+    .screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #020617;
+      border-radius: 44px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* DYNAMIC ISLAND */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 28px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 100;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .dynamic-island:hover {
+      width: 180px;
+    }
+
+    /* BOOT ANIMATION (LOGO APPLE) */
+    .boot-screen {
+      position: absolute;
+      inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 90;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .apple-logo {
+      width: 65px;
+      height: 65px;
+      fill: #fff;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+
+    .boot-text {
+      margin-top: 24px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #64748B;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* SLIDER SYSTEM */
+    .slider-track {
+      display: flex;
+      width: 200%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide {
+      width: 50%;
+      height: 100%;
+      padding: 60px 24px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* SLIDE 1: HERO DISPLAY */
+    .slide-1 {
+      background: radial-gradient(circle at 50% 30%, #1E3A8A 0%, #020617 75%);
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(180deg, #FFFFFF 0%, #93C5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .hero-tagline {
+      font-size: 14px;
+      color: #60A5FA;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .hero-sub {
+      font-size: 12px;
+      color: #94A3B8;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .glow-orb {
+      width: 140px;
+      height: 140px;
+      margin: 20px auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      filter: blur(22px);
+      opacity: 0.65;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, #2563EB, #1D4ED8);
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6);
+    }
+
+    /* SLIDE 2: FORM PRE-ORDER */
+    .slide-2 {
+      background: #020617;
+      overflow-y: auto;
+    }
+
+    .slide-2::-webkit-scrollbar { display: none; }
+
+    .form-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .small-logo {
+      width: 22px;
+      height: 22px;
+      fill: #60A5FA;
+    }
+
+    .form-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      color: #94A3B8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: #3B82F6;
+      background: rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .form-group select option {
+      background: #0F172A;
+      color: #fff;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .footer-text {
+      font-size: 10px;
+      color: #64748B;
+      text-align: center;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: none;
+      color: #60A5FA;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      display: inline-block;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone-container">
+    <div class="screen">
+      <!-- DYNAMIC ISLAND -->
+      <div class="dynamic-island"></div>
+
+      <!-- BOOT ANIMATION (LOGO APPLE) -->
+      <div class="boot-screen" id="bootScreen">
+        <svg class="apple-logo" viewBox="0 0 170 170">
+          <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.14-1.9-14.4-6.08-3.38-2.73-7.3-7.44-11.78-14.13-6.52-9.72-11.43-20.25-14.72-31.59-3.29-11.33-4.94-22.38-4.94-33.15 0-14.75 3.82-26.83 11.45-36.24 7.63-9.42 17.15-14.23 28.58-14.43 4.23 0 9.17 1.13 14.82 3.38 5.65 2.25 9.4 3.44 11.25 3.57 2.22 0 6.13-1.25 11.73-3.75 5.6-2.5 10.32-3.68 14.17-3.54 9.38.38 17.22 3.46 23.52 9.25 2.75 2.53 5.38 5.69 7.88 9.47-12.5 7.55-18.63 17.8-18.38 30.75.25 10.25 4.13 18.78 11.63 25.59 7.5 6.81 16.38 10.5 26.63 11.07-2.38 7.07-5.43 13.91-9.15 20.52zM119.22 31.84c0-7.38 2.63-14.19 7.88-20.44 5.25-6.25 11.88-9.97 19.88-11.16.25 1 .38 1.88.38 2.63 0 7.37-2.7 14.28-8.1 20.73-5.4 6.45-12.05 10.14-19.95 11.08-.13-.76-.19-1.71-.19-2.84z"/>
+        </svg>
+        <div class="boot-text">iPhone 17 Pro Max</div>
+      </div>
+
+      <!-- MAIN CONTENT SLIDER -->
+      <div class="slider-track" id="sliderTrack">
+        
+        <!-- SLIDE 1 -->
+        <div class="slide slide-1">
+          <div>
+            <h1 class="hero-title">iPhone 17 Pro Max</h1>
+            <p class="hero-tagline">Titanium. Beyond Speed.</p>
+            <p class="hero-sub">Rasakan era baru kecerdasan dan kekuatan. Jadilah yang pertama menggenggam masa depan.</p>
+          </div>
+          
+          <div class="glow-orb"></div>
+
+          <button class="btn-next" onclick="goToSlide(1)">Jelajahi Pre-Order &rarr;</button>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide slide-2">
+          <div>
+            <button class="btn-back" onclick="goToSlide(0)">&larr; Kembali</button>
+            <div class="form-header">
+              <svg class="small-logo" viewBox="0 0 170 170">
+                <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.14-1.9-14.4-6.08-3.38-2.73-7.3-7.44-11.78-14.13-6.52-9.72-11.43-20.25-14.72-31.59-3.29-11.33-4.94-22.38-4.94-33.15 0-14.75 3.82-26.83 11.45-36.24 7.63-9.42 17.15-14.23 28.58-14.43 4.23 0 9.17 1.13 14.82 3.38 5.65 2.25 9.4 3.44 11.25 3.57 2.22 0 6.13-1.25 11.73-3.75 5.6-2.5 10.32-3.68 14.17-3.54 9.38.38 17.22 3.46 23.52 9.25 2.75 2.53 5.38 5.69 7.88 9.47-12.5 7.55-18.63 17.8-18.38 30.75.25 10.25 4.13 18.78 11.63 25.59 7.5 6.81 16.38 10.5 26.63 11.07-2.38 7.07-5.43 13.91-9.15 20.52zM119.22 31.84c0-7.38 2.63-14.19 7.88-20.44 5.25-6.25 11.88-9.97 19.88-11.16.25 1 .38 1.88.38 2.63 0 7.37-2.7 14.28-8.1 20.73-5.4 6.45-12.05 10.14-19.95 11.08-.13-.76-.19-1.71-.19-2.84z"/>
+              </svg>
+              <span class="form-title">Exclusive Access</span>
+            </div>
+
+            <form onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama lengkap Anda" required />
+              </div>
+
+              <div class="form-group">
+                <label>Alamat Email</label>
+                <input type="email" placeholder="nama@domain.com" required />
+              </div>
+
+              <div class="form-group">
+                <label>Nomor Telepon</label>
+                <input type="tel" placeholder="+62 812-XXXX-XXXX" required />
+              </div>
+
+              <div class="form-group">
+                <label>Pilihan Penyimpanan</label>
+                <select required>
+                  <option value="256">256GB — Deep Titanium Blue</option>
+                  <option value="512">512GB — Deep Titanium Blue</option>
+                  <option value="1024">1TB — Deep Titanium Blue</option>
+                  <option value="2048">2TB — Deep Titanium Blue (Ultimate)</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-submit">Amankan Unit Anda</button>
+            </form>
+          </div>
+
+          <p class="footer-text">Stok terbatas untuk gelombang pertama.<br>Garansi Resmi Apple Indonesia.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // SIMULASI LOADING BOOT SCREEN
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const bootScreen = document.getElementById('bootScreen');
+        bootScreen.style.opacity = '0';
+        setTimeout(() => {
+          bootScreen.style.visibility = 'hidden';
+        }, 1000);
+      }, 2500); // Tampil selama 2.5 detik
+    });
+
+    // NAVIGASI SLIDE
+    function goToSlide(index) {
+      const track = document.getElementById('sliderTrack');
+      track.style.transform = `translateX(-${index * 50}%)`;
+    }
+
+    // FORM SUBMIT ACTION
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('Selamat! Pesanan Pre-Order iPhone 17 Pro Max Anda berhasil didaftarkan.');
+    }
+  </script>
+</body>
+</html>
